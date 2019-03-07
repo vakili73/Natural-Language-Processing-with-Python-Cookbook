@@ -1,5 +1,9 @@
 import nltk
+# nltk.download('gutenberg')
+
 from nltk.corpus import gutenberg
+
+
 print(gutenberg.fileids())
 
 gb_words = gutenberg.words('bible-kjv.txt')
@@ -9,7 +13,6 @@ words = [w for w in words_filtered if w.lower() not in stopwords]
 
 fdist = nltk.FreqDist(words)
 fdist2 = nltk.FreqDist(gb_words)
-
 
 print('Following are the most common 10 words in the bag')
 print(fdist2.most_common(10))
