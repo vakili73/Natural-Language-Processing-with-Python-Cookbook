@@ -1,4 +1,9 @@
+# import nltk
+# nltk.download('wordnet')
+
 from nltk.corpus import wordnet as wn
+
+
 type = 'n'
 
 synsets = wn.all_synsets(type)
@@ -16,5 +21,5 @@ count = 0
 for lemma in lemmas:
     count = count + len(wn.synsets(lemma, type))
 
-print('Total senses :',count)
-print('Average Polysemy of ', type,': ' ,  count/len(lemmas))
+print('Total senses :', count)
+print('Average Polysemy of ', type, ': ',  count/len(lemmas))

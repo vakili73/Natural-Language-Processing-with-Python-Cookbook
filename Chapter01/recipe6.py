@@ -1,4 +1,8 @@
+# import nltk
+# nltk.download('wordnet')
+
 from nltk.corpus import wordnet as wn
+
 
 woman = wn.synset('woman.n.01')
 bed = wn.synset('bed.n.01')
@@ -11,9 +15,8 @@ for idx, path in enumerate(woman_paths):
     for synset in path:
         print(synset.name(), ', ', end='')
 
-
-
 types_of_beds = bed.hyponyms()
 print('\n\nTypes of beds(Hyponyms): ', types_of_beds)
 
-print(sorted(set(lemma.name() for synset in types_of_beds for lemma in synset.lemmas())))
+print(sorted(set(lemma.name()
+                 for synset in types_of_beds for lemma in synset.lemmas())))
