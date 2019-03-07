@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 
-html_doc = open('sample-html.html', 'r').read()
+
+html_doc = open('Chapter02/sample-html.html', 'r').read()
 soup = BeautifulSoup(html_doc, 'html.parser')
 
 print('Full text HTML Stripped:')

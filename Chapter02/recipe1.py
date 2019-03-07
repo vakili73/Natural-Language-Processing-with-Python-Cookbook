@@ -1,4 +1,4 @@
-namesList = ['Tuffy','Ali','Nysha','Tim' ]
+namesList = ['Tuffy', 'Ali', 'Nysha', 'Tim']
 sentence = 'My dog sleeps on sofa'
 
 names = ';'.join(namesList)
