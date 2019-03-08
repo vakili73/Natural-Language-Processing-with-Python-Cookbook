@@ -1,6 +1,7 @@
 from nltk.grammar import CFG
 from nltk.parse.chart import ChartParser, BU_LC_STRATEGY
 
+
 grammar = CFG.fromstring("""
 S -> T1 T4
 T1 -> NNP VBZ
@@ -21,5 +22,6 @@ tokens = sentence.split()
 chart = cp.chart_parse(tokens)
 parses = list(chart.parses(grammar.start()))
 print("Total Edges :", len(chart.edges()))
-for tree in parses: print(tree)
+for tree in parses:
+    print(tree)
 tree.draw()

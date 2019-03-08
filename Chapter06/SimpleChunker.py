@@ -1,5 +1,6 @@
 import nltk
 
+
 text = "Ravi is the CEO of a Company. He is very powerful public speaker also."
 
 grammar = '\n'.join([

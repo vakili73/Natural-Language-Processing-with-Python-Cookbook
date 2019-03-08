@@ -1,5 +1,6 @@
 import nltk
 
+
 grammar = nltk.grammar.DependencyGrammar.fromstring("""
 'savings' -> 'small'
 'yield' -> 'savings'

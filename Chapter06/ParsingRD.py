@@ -1,5 +1,6 @@
 import nltk
 
+
 def RDParserExample(grammar, textlist):
     parser = nltk.parse.RecursiveDescentParser(grammar)
     for text in textlist:
@@ -7,6 +8,7 @@ def RDParserExample(grammar, textlist):
         for tree in parser.parse(sentence):
             print(tree)
             tree.draw()
+
 
 grammar = nltk.CFG.fromstring("""
 S -> NP VP

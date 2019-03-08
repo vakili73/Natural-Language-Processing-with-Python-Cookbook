@@ -1,5 +1,6 @@
 import nltk
 
+
 text = "Lalbagh Botanical Gardens is a well known botanical garden in Bengaluru, India."
 sentences = nltk.sent_tokenize(text)
 for sentence in sentences:

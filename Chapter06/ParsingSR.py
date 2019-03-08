@@ -1,5 +1,6 @@
 import nltk
 
+
 def SRParserExample(grammar, textlist):
     parser = nltk.parse.ShiftReduceParser(grammar)
     for text in textlist:
@@ -7,6 +8,7 @@ def SRParserExample(grammar, textlist):
         for tree in parser.parse(sentence):
             print(tree)
             tree.draw()
+
 
 text = [
     "Tajmahal is in Agra",
