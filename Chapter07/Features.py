@@ -1,6 +1,7 @@
 import nltk
 import random
 
+
 sampledata = [
     ('KA-01-F 1034 A', 'rtc'),
     ('KA-02-F 1030 B', 'rtc'),
@@ -18,6 +19,8 @@ testdata = [
     'KA-02-FA 0801',
     'KA-01 9129'
 ]
+
+
 def learnSimpleFeatures():
     def vehicleNumberFeature(vnumber):
         return {'vehicle_class': vnumber[6]}
@@ -25,7 +28,9 @@ def learnSimpleFeatures():
     classifier = nltk.NaiveBayesClassifier.train(featuresets)
     for num in testdata:
         feature = vehicleNumberFeature(num)
-        print("(simple) %s is of type %s" %(num, classifier.classify(feature)))
+        print("(simple) %s is of type %s" %
+              (num, classifier.classify(feature)))
+
 
 def learnFeatures():
     def vehicleNumberFeature(vnumber):
@@ -37,7 +42,8 @@ def learnFeatures():
     classifier = nltk.NaiveBayesClassifier.train(featuresets)
     for num in testdata:
         feature = vehicleNumberFeature(num)
-        print("(dual) %s is of type %s" %(num, classifier.classify(feature)))
+        print("(dual) %s is of type %s" % (num, classifier.classify(feature)))
+
 
 learnSimpleFeatures()
 learnFeatures()

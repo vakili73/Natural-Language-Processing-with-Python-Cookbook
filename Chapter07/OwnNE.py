@@ -30,6 +30,7 @@ samplestrings = [
     "Bill Gates announces Satya Nadella as new CEO of Microsoft"
 ]
 
+
 def demo(samplestrings):
     for s in samplestrings:
         words = nltk.word_tokenize(s)
@@ -38,6 +39,7 @@ def demo(samplestrings):
         chunks = cp.parse(tagged)
         print(nltk.tree2conllstr(chunks))
         print(chunks)
+
 
 demo(samplestrings)
 
@@ -61,7 +63,5 @@ of IN O
 Microsoft NNP B-COMPANY
 """]
 
-#print(nltk.conllstr2tree(strings[1]))
-#print(nltk.ne_chunk(nltk.conllstr2tree(strings[1])))
-
-
+# print(nltk.conllstr2tree(strings[1]))
+# print(nltk.ne_chunk(nltk.conllstr2tree(strings[1])))

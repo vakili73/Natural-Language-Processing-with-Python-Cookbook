@@ -1,5 +1,6 @@
 import nltk
 
+
 class LearningDictionary():
     def __init__(self, sentence):
         self.words = nltk.word_tokenize(sentence)
@@ -24,7 +25,6 @@ class LearningDictionary():
     def isWordPresent(self, word):
         return 'Yes' if word in self.dictionary else 'No'
 
-
     def getPOSForWord(self, word):
         return self.dictionary[word] if word in self.dictionary else None
 
@@ -40,6 +40,8 @@ for word in words:
     status = learning.isWordPresent(word)
     print("Is '{}' present in dictionary ? : '{}'".format(word, status))
     if status is True:
-        print("\tPOS For '{}' is '{}'".format(word, learning.getPOSForWord(word)))
+        print("\tPOS For '{}' is '{}'".format(
+            word, learning.getPOSForWord(word)))
 for pword in pos:
-    print("POS '{}' has '{}' words".format(pword, learning.getWordsForPOS(pword)))
+    print("POS '{}' has '{}' words".format(
+        pword, learning.getWordsForPOS(pword)))

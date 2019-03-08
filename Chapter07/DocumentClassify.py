@@ -2,6 +2,7 @@ import nltk
 import random
 import feedparser
 
+
 urls = {
     'mlb': 'https://sports.yahoo.com/mlb/rss.xml',
     'nfl': 'https://sports.yahoo.com/nfl/rss.xml',
@@ -10,12 +11,14 @@ urls = {
 feedmap = {}
 stopwords = nltk.corpus.stopwords.words('english')
 
+
 def featureExtractor(words):
     features = {}
     for word in words:
         if word not in stopwords:
             features["word({})".format(word)] = True
     return features
+
 
 sentences = []
 
@@ -27,7 +30,8 @@ for category in urls.keys():
         words = data.split()
         sentences.append((category, words))
 
-featuresets = [(featureExtractor(words), category) for category, words in sentences]
+featuresets = [(featureExtractor(words), category)
+               for category, words in sentences]
 random.shuffle(featuresets)
 
 total = len(featuresets)
@@ -45,4 +49,3 @@ for (i, entry) in enumerate(feedmap['nfl']['entries']):
         features = featureExtractor(entry['title'].split())
         category = classifier.classify(features)
         print('{} -> {}'.format(category, entry['summary']))
-
