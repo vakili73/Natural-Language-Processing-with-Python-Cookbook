@@ -1,10 +1,12 @@
 import re
 
+
 def text_match(text, patterns):
-        if re.search(patterns,  text):
-                return 'Found a match!'
-        else:
-                return('Not matched!')
+    if re.search(patterns,  text):
+        return 'Found a match!'
+    else:
+        return('Not matched!')
+
 
 print("Pattern to test start and end with")
 print(text_match("abbc", "^a.*c$"))

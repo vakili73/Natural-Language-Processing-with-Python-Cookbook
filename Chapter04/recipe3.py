@@ -1,7 +1,8 @@
 import re
 
-#search for literal strings in sentence
-patterns = [ 'Tuffy', 'Pie', 'Loki' ]
+# search for literal strings in sentence
+
+patterns = ['Tuffy', 'Pie', 'Loki']
 text = 'Tuffy eats pie, Loki eats peas!'
 for pattern in patterns:
     print('Searching for "%s" in "%s" ->' % (pattern, text),)
@@ -10,7 +11,7 @@ for pattern in patterns:
     else:
         print('Not Found!')
 
-#search a substring and find it's location too
+# search a substring and find it's location too
 
 text = 'Diwali is a festival of lights, Holi is a festival of colors!'
 pattern = 'festival'
