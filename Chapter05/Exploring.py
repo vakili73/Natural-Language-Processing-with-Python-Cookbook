@@ -1,4 +1,6 @@
 import nltk
+
+
 simpleSentence = "Bangalore is the capital of Karnataka."
 wordsInSentence = nltk.word_tokenize(simpleSentence)
 print(wordsInSentence)

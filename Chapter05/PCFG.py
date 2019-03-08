@@ -1,6 +1,7 @@
 import nltk
 from nltk.parse.generate import generate
 
+
 productions = [
     "ROOT -> WORD [1.0]",
     "WORD -> P1 [0.25]",

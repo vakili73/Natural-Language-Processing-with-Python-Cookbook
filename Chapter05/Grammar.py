@@ -2,6 +2,7 @@ import nltk
 import string
 from nltk.parse.generate import generate
 
+
 productions = [
     "ROOT -> WORD",
     "WORD -> ' '",
