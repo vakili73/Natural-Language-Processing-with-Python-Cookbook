@@ -3,6 +3,7 @@ import math
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 class TextSimilarityExample:
     def __init__(self):
         self.statements = [
@@ -11,6 +12,7 @@ class TextSimilarityExample:
             'So many kingdoms ruled India',
             'Lalbagh is a botanical garden in India'
         ]
+
     def TF(self, sentence):
         words = nltk.word_tokenize(sentence.lower())
         freq = nltk.FreqDist(words)
@@ -70,6 +72,7 @@ class TextSimilarityExample:
         vectors = self.TF_IDF(inputQuery)
         self.displayVectors(vectors)
         self.cosineSimilarity()
+
 
 similarity = TextSimilarityExample()
 similarity.demo()

@@ -1,5 +1,6 @@
 import nltk
 
+
 def understandWordSenseExamples():
     words = ['wind', 'date', 'left']
     print("-- examples --")
@@ -18,7 +19,9 @@ def understandBuiltinWSD():
         ('I went to the river bank to see the sun rise', 'bank', 'n'),
     ]
     for m in maps:
-        print("Sense '{}' for '{}' -> '{}'".format(m[0], m[1], nltk.wsd.lesk(m[0], m[1], m[2])))
+        print(
+            "Sense '{}' for '{}' -> '{}'".format(m[0], m[1], nltk.wsd.lesk(m[0], m[1], m[2])))
+
 
 if __name__ == '__main__':
     understandWordSenseExamples()

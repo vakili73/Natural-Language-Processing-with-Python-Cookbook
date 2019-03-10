@@ -4,8 +4,10 @@ import queue
 import feedparser
 import uuid
 
+
 threads = []
 queues = [queue.Queue(), queue.Queue()]
+
 
 def extractWords():
     url = 'https://timesofindia.indiatimes.com/rssfeeds/1081479906.cms'
@@ -19,6 +21,7 @@ def extractWords():
         queues[0].put(data, True)
         print(">> {} : {}".format(data['uuid'], text))
 
+
 def extractPOS():
     while True:
         if queues[0].empty():
@@ -30,6 +33,7 @@ def extractPOS():
             queues[0].task_done()
             queues[1].put({'uuid': data['uuid'], 'input': postags}, True)
 
+
 def extractNE():
     while True:
         if queues[1].empty():
@@ -39,7 +43,7 @@ def extractNE():
             postags = data['input']
             queues[1].task_done()
             chunks = nltk.ne_chunk(postags, binary=False)
-            print("  << {} : ".format(data['uuid']), end = '')
+            print("  << {} : ".format(data['uuid']), end='')
             for path in chunks:
                 try:
                     label = path.label()
@@ -47,6 +51,7 @@ def extractNE():
                 except:
                     pass
             print()
+
 
 def runProgram():
     e = threading.Thread(target=extractWords())
@@ -66,6 +71,7 @@ def runProgram():
 
     for t in threads:
         t.join()
+
 
 if __name__ == '__main__':
     runProgram()

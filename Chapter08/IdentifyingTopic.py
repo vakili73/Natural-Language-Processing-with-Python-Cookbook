@@ -4,6 +4,7 @@ from gensim import corpora, models
 import nltk
 import feedparser
 
+
 class IdentifyingTopicExample:
     def getDocuments(self):
         url = 'https://sports.yahoo.com/mlb/rss.xml'
@@ -31,13 +32,15 @@ class IdentifyingTopicExample:
     def doLDA(self):
         dictionary = corpora.Dictionary(self.cleaned)
         corpus = [dictionary.doc2bow(cleandoc) for cleandoc in self.cleaned]
-        ldamodel = models.ldamodel.LdaModel(corpus, num_topics=2, id2word = dictionary)
+        ldamodel = models.ldamodel.LdaModel(
+            corpus, num_topics=2, id2word=dictionary)
         print(ldamodel.print_topics(num_topics=2, num_words=4))
 
     def run(self):
         self.getDocuments()
         self.cleanDocuments()
         self.doLDA()
+
 
 if __name__ == '__main__':
     topicExample = IdentifyingTopicExample()

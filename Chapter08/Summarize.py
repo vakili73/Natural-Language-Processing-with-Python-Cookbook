@@ -1,6 +1,6 @@
-from gensim.summarization import summarize
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
+from gensim.summarization import summarize
 
 #
 # This recipe uses automatic computer science Paper generation tool from mit.edu

@@ -1,7 +1,10 @@
 import nltk
+# nltk.download('vader_lexicon')
+
 import nltk.sentiment.util
 import nltk.sentiment.sentiment_analyzer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 
 def mySentimentAnalyzer():
     def score_feedback(text):
@@ -9,7 +12,8 @@ def mySentimentAnalyzer():
         if '_NEG' in ' '.join(nltk.sentiment.util.mark_negation(text.split())):
             score = -1
         else:
-            analysis = nltk.sentiment.util.extract_unigram_feats(text.split(), positive_words)
+            analysis = nltk.sentiment.util.extract_unigram_feats(
+                text.split(), positive_words)
             if True in analysis.values():
                 score = 1
             else:
@@ -41,6 +45,7 @@ def advancedSentimentAnalyzer():
         for k in kvp:
             print('{} = {}, '.format(k, kvp[k]), end='')
         print()
+
 
 if __name__ == '__main__':
     advancedSentimentAnalyzer()
