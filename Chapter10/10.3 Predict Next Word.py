@@ -1,7 +1,3 @@
-
-
-
-
 from __future__ import print_function
 
 import os
@@ -109,8 +105,3 @@ NUM_DISPLAY = 10
    
 for i in random.sample(range(len(xtest_tg)),NUM_DISPLAY):
 	print (i,xtest_tg[i],"|",rev_dictnry[np.argmax(Ytest[i])],"|",rev_dictnry[np.argmax(Y_pred[i])])
-
-
-
-
-

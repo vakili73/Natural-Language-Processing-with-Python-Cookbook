@@ -1,8 +1,3 @@
-
-
-
-
-
 import os
 """ First change the following directory link to where all input files do exist """
 os.chdir("C:\\Users\\prata\\Documents\\book_codes\\NLP_DL")
@@ -153,5 +148,3 @@ ans_pred = model.predict(quesns_train_2[0:3])
 
 print (decode(ans_pred[0]))
 print (decode(ans_pred[1]))
-
-
