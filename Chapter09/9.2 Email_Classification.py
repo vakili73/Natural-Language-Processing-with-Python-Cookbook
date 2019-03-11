@@ -1,5 +1,3 @@
-
-
 from sklearn.datasets import fetch_20newsgroups
 
 newsgroups_train = fetch_20newsgroups(subset='train')
@@ -145,4 +143,3 @@ print (classification_report(y_train,y_train_predclass))
 
 print ("\nDeep Neural Network  - Test Classification Report")
 print (classification_report(y_test,y_test_predclass))
-							 

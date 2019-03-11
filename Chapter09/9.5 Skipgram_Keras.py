@@ -1,11 +1,6 @@
-
 from __future__ import print_function
 
 import os
-""" First change the following directory link to where all input files do exist """
-os.chdir("C:\\Users\\prata\\Documents\\book_codes\\NLP_DL")
-
-
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
@@ -13,10 +8,8 @@ import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 
-
 import pandas as pd
 import random
-
 
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -80,7 +73,6 @@ for line in fin:
 fin.close()
 
 
-
 import collections
 counter = collections.Counter()
 
@@ -90,7 +82,6 @@ for line in lines:
 
 word2idx = {w:(i+1) for i,(w,_) in enumerate(counter.most_common())}        
 idx2word = {v:k for k,v in word2idx.items()}
-
 
 
 xs = []
@@ -119,15 +110,14 @@ Xtrain, Xtest, Ytrain, Ytest,xstr,xsts = train_test_split(X, Y,xs, test_size=0.3
 print(Xtrain.shape, Xtest.shape, Ytrain.shape, Ytest.shape)
 
 
-
 from keras.layers import Input,Dense,Dropout
 from keras.models import Model
+
 
 np.random.seed(42)
 
 BATCH_SIZE = 128
 NUM_EPOCHS = 20
-
 
 input_layer = Input(shape = (Xtrain.shape[1],),name="input")
 first_layer = Dense(300,activation='relu',name = "first")(input_layer)
@@ -140,7 +130,6 @@ third_dropout = Dropout(0.5,name="thirdout")(third_layer)
 
 fourth_layer = Dense(Ytrain.shape[1],activation='softmax',name = "fourth")(third_dropout)
 
-
 history = Model(input_layer,fourth_layer)
 history.compile(optimizer = "rmsprop",loss="categorical_crossentropy",metrics=["accuracy"])
 
@@ -152,7 +141,6 @@ encoder = Model(history.input,history.get_layer("second").output)
 
 # Predicting latent variables with extracted Encoder model
 reduced_X = encoder.predict(Xtest)
-
 
 
 final_pdframe = pd.DataFrame(reduced_X)
@@ -180,15 +168,3 @@ for i, label in enumerate(labels):
 plt.xlabel("Dimension 1")
 plt.ylabel("Dimension 2")
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
